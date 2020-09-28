@@ -3,3 +3,10 @@ file:///home/viktor/.dart-sdk/lib/libraries.json
 file:///home/viktor/.flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.2/lib/js.dart
 file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/.dart_tool/package_config.json
 file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/lib/sw.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/DoesNotConvergeToTheSolutionException.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/differential.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/equation.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/integral.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/interpolation.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/points.dart
+file:///run/media/viktor/windows/Viktor/Documents/Programming/flutter/Photovoltaic/pvlib/lib/pvlib.dart
