@@ -28818,7 +28818,7 @@ return new S.ry(new F.qY(s,null),s,X.a8R(null,C.ns,X.agS()),null)}}
 F.qY.prototype={
 aV:function(){return new F.vB(H.a([],t.t9),D.dC("300"),D.dC("1200"),D.dC("10"),D.dC("0.164"),D.dC("3e-2"),D.dC("22"),D.dC("1"),D.dC("298.15"),D.dC("8e-6"),D.dC("4.9e15"),D.dC("0.1"),D.dC("1e13"),D.dC("0.3"),D.dC("7e3"),D.dC("0.035"),C.p)}}
 F.vB.prototype={
-b9:function(){if(typeof window.Worker!="undefined"){var s=new Worker("assets/sw.js")
+b9:function(){if(typeof window.Worker!="undefined"){var s=new Worker("assets/assets/sw.js")
 this.fy=s
 W.bz(s,"message",new F.a_z(this),!1,t.fy)}else P.iV("Your browser doesn't support web workers.")
 this.bs()},
