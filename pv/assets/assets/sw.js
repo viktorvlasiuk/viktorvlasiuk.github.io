@@ -375,6 +375,11 @@
     argumentErrorValue: function(object) {
       return new P.ArgumentError(true, object, null, null);
     },
+    checkNum: function(value) {
+      if (typeof value != "number")
+        throw H.wrapException(H.argumentErrorValue(value));
+      return value;
+    },
     wrapException: function(ex) {
       var wrapper, t1;
       if (ex == null)
@@ -3691,17 +3696,53 @@
       t2 = type$.legacy_List_legacy_double;
       return H.setRuntimeTypeInfo([P.LinkedHashMap_LinkedHashMap$_literal(["x", wawelengthRange, "y", iqe], t1, t2), P.LinkedHashMap_LinkedHashMap$_literal(["x", wawelengthRange, "y", eqe], t1, t2)], type$.JSArray_legacy_Map_of_legacy_String_and_legacy_List_legacy_double);
     },
-    j02: function(p0, p00, S0, $T, d, Rs, tR, b1, Rsh) {
+    j02: function(p0, p00, S0, $T, d, Rs, tR, b, Rsh) {
       var voltageRange = P.List_List$generate(90, new S.j02_closure(0.01, 0.01), type$.legacy_double),
         t1 = H._arrayInstanceType(voltageRange),
         t2 = t1._eval$1("MappedListIterable<1,double*>");
-      return P.LinkedHashMap_LinkedHashMap$_literal(["x", voltageRange, "y", P.List_List$from(new H.MappedListIterable(voltageRange, t1._eval$1("double*(1)")._as(new S.j02_closure0(p0, p00, S0, $T, d, Rs, tR, b1, Rsh)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
+      return P.LinkedHashMap_LinkedHashMap$_literal(["x", voltageRange, "y", P.List_List$from(new H.MappedListIterable(voltageRange, t1._eval$1("double*(1)")._as(new S.j02_closure0(p0, p00, S0, $T, d, Rs, tR, b, Rsh)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
     },
-    j41: function(p0, p00, S0, $T, d, Rs, tR, b1, Rsh, Jsc) {
+    j41: function(p0, p00, S0, $T, d, Rs, tR, b, Rsh, Jsc) {
       var voltageRange = P.List_List$generate(90, new S.j41_closure(0.01, 0.01), type$.legacy_double),
         t1 = H._arrayInstanceType(voltageRange),
         t2 = t1._eval$1("MappedListIterable<1,double*>");
-      return P.LinkedHashMap_LinkedHashMap$_literal(["x", voltageRange, "y", P.List_List$from(new H.MappedListIterable(voltageRange, t1._eval$1("double*(1)")._as(new S.j41_closure0(p0, p00, S0, $T, d, Rs, tR, b1, Rsh, Jsc)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
+      return P.LinkedHashMap_LinkedHashMap$_literal(["x", voltageRange, "y", P.List_List$from(new H.MappedListIterable(voltageRange, t1._eval$1("double*(1)")._as(new S.j41_closure0(p0, p00, S0, $T, d, Rs, tR, b, Rsh, Jsc)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
+    },
+    teff: function(alData, nrData, p0, p00, S0, $T, d, tR, b) {
+      var t3, teff2, teff4,
+        al = K.PVLib_strToPoints(alData),
+        nr = K.PVLib_strToPoints(nrData),
+        dnRange = P.List_List$generate(51, new S.teff_closure(), type$.legacy_double),
+        t1 = H._arrayInstanceType(dnRange),
+        t2 = t1._eval$1("double*(1)");
+      t1 = t1._eval$1("MappedListIterable<1,double*>");
+      t3 = t1._eval$1("ListIterable.E");
+      teff2 = P.List_List$from(new H.MappedListIterable(dnRange, t2._as(new S.teff_closure0(al, nr, p0, p00, S0, $T, d, tR, b)), t1), true, t3);
+      teff4 = P.List_List$from(new H.MappedListIterable(dnRange, t2._as(new S.teff_closure1(p0, S0, $T, d, tR, b)), t1), true, t3);
+      t3 = type$.legacy_String;
+      t1 = type$.legacy_List_legacy_double;
+      return H.setRuntimeTypeInfo([P.LinkedHashMap_LinkedHashMap$_literal(["x", dnRange, "y", teff2], t3, t1), P.LinkedHashMap_LinkedHashMap$_literal(["x", dnRange, "y", teff4], t3, t1)], type$.JSArray_legacy_Map_of_legacy_String_and_legacy_List_legacy_double);
+    },
+    vsc: function(tR, p0, $T, b) {
+      var dn = P.List_List$generate(11, new S.vsc_closure(), type$.legacy_double),
+        t1 = H._arrayInstanceType(dn),
+        t2 = t1._eval$1("MappedListIterable<1,double*>");
+      return P.LinkedHashMap_LinkedHashMap$_literal(["x", dn, "y", P.List_List$from(new H.MappedListIterable(dn, t1._eval$1("double*(1)")._as(new S.vsc_closure0(tR, p0, $T, b)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
+    },
+    k2: function(p00, S0, $T, d, Rs, tR, b, Rsh, Jsc) {
+      var p0 = P.List_List$generate(11, new S.k2_closure(), type$.legacy_double),
+        t1 = H._arrayInstanceType(p0),
+        t2 = t1._eval$1("MappedListIterable<1,double*>");
+      return P.LinkedHashMap_LinkedHashMap$_literal(["x", p0, "y", P.List_List$from(new H.MappedListIterable(p0, t1._eval$1("double*(1)")._as(new S.k2_closure0(p00, S0, $T, d, Rs, tR, b, Rsh, Jsc)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
+    },
+    k20: function(p0, p00, S0, $T, d, Rs, tR, b, Rsh, $R, am15, abs, reflaction) {
+      var am = K.PVLib_strToPoints(am15),
+        absorbtion = K.PVLib_strToPoints(abs),
+        r = K.PVLib_strToPoints(reflaction),
+        thickness = P.List_List$generate(11, new S.k20_closure(), type$.legacy_double),
+        t1 = H._arrayInstanceType(thickness),
+        t2 = t1._eval$1("MappedListIterable<1,double*>");
+      return P.LinkedHashMap_LinkedHashMap$_literal(["x", thickness, "y", P.List_List$from(new H.MappedListIterable(thickness, t1._eval$1("double*(1)")._as(new S.k20_closure0(p0, p00, S0, $T, Rs, tR, b, Rsh, $R, am, absorbtion, r)), t2), true, t2._eval$1("ListIterable.E"))], type$.legacy_String, type$.legacy_List_legacy_double);
     },
     main_closure: function main_closure() {
     },
@@ -3737,7 +3778,7 @@
       _.d = t4;
       _.Rs = t5;
       _.tR = t6;
-      _.b1 = t7;
+      _.b = t7;
       _.Rsh = t8;
     },
     j41_closure: function j41_closure(t0, t1) {
@@ -3753,9 +3794,75 @@
       _.d = t4;
       _.Rs = t5;
       _.tR = t6;
-      _.b1 = t7;
+      _.b = t7;
       _.Rsh = t8;
       _.Jsc = t9;
+    },
+    teff_closure: function teff_closure() {
+    },
+    teff_closure0: function teff_closure0(t0, t1, t2, t3, t4, t5, t6, t7, t8) {
+      var _ = this;
+      _.al = t0;
+      _.nr = t1;
+      _.p0 = t2;
+      _.p00 = t3;
+      _.S0 = t4;
+      _.T = t5;
+      _.d = t6;
+      _.tR = t7;
+      _.b = t8;
+    },
+    teff_closure1: function teff_closure1(t0, t1, t2, t3, t4, t5) {
+      var _ = this;
+      _.p0 = t0;
+      _.S0 = t1;
+      _.T = t2;
+      _.d = t3;
+      _.tR = t4;
+      _.b = t5;
+    },
+    vsc_closure: function vsc_closure() {
+    },
+    vsc_closure0: function vsc_closure0(t0, t1, t2, t3) {
+      var _ = this;
+      _.tR = t0;
+      _.p0 = t1;
+      _.T = t2;
+      _.b = t3;
+    },
+    k2_closure: function k2_closure() {
+    },
+    k2_closure0: function k2_closure0(t0, t1, t2, t3, t4, t5, t6, t7, t8) {
+      var _ = this;
+      _.p00 = t0;
+      _.S0 = t1;
+      _.T = t2;
+      _.d = t3;
+      _.Rs = t4;
+      _.tR = t5;
+      _.b = t6;
+      _.Rsh = t7;
+      _.Jsc = t8;
+    },
+    k20_closure: function k20_closure() {
+    },
+    k20_closure0: function k20_closure0(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11) {
+      var _ = this;
+      _.p0 = t0;
+      _.p00 = t1;
+      _.S0 = t2;
+      _.T = t3;
+      _.Rs = t4;
+      _.tR = t5;
+      _.b = t6;
+      _.Rsh = t7;
+      _.R = t8;
+      _.am = t9;
+      _.absorbtion = t10;
+      _.r = t11;
+    },
+    DoesNotConvergeToTheSolutionException$: function() {
+      return new S.DoesNotConvergeToTheSolutionException();
     },
     DoesNotConvergeToTheSolutionException: function DoesNotConvergeToTheSolutionException() {
     },
@@ -3774,6 +3881,13 @@
       this.func = t0;
     }, Equation_findSolution_closure: function Equation_findSolution_closure(t0) {
       this.dif = t0;
+    }},
+  N = {Integral: function Integral(t0) {
+      this.func = t0;
+    }, Integral_findByTrapeze_closure: function Integral_findByTrapeze_closure(t0, t1, t2) {
+      this.$this = t0;
+      this.b = t1;
+      this.a = t2;
     }},
   X = {Interpolation: function Interpolation(t0, t1) {
       this.x = t0;
@@ -3794,6 +3908,62 @@
       exponenta = Math.exp(-(1.206 - 0.000273 * $T) / 0.0517 * 300 / $T);
       return 29135e11 * Math.pow($T, 1.6) * exponenta;
     },
+    PVLib_Vsc: function(tR1, p0, $T, b2, k, dn) {
+      var t1, c, d;
+      if (typeof p0 !== "number")
+        return p0.$add();
+      if (typeof dn !== "number")
+        return H.iae(dn);
+      t1 = Math.pow(K.PVLib_ni($T), 2);
+      if (typeof b2 !== "number")
+        return b2.$mul();
+      c = (p0 + dn) / (b2 * (dn + t1 / p0));
+      d = dn / p0;
+      if (typeof tR1 !== "number")
+        return H.iae(tR1);
+      t1 = Math.pow(1e15 / p0, 0.5);
+      if (typeof $T !== "number")
+        return $T.$div();
+      return 0.00000911 / tR1 * t1 * Math.pow($T / 300, 0.5) * Math.pow(c, 0.5) * k / Math.pow(0.5 * Math.log(c) - (1 - Math.pow(c, -0.5)) * (1 + d) + d * (Math.pow(c, 0.5) - 1), 0.5);
+    },
+    PVLib_dEgN: function(p0, dn, $T) {
+      var dnPP0MAex3, dnAex3, fTR, fPI3, nePNh, nePNh2, nePNh32, fT_2, fT_3, t1, fnp_730, a, b, c1, c2, d, t2, t3, t4, t5, nePNh12, fT3, a0, b0, c, fnp_34, ch, d0,
+        aex3 = Math.pow(3719e-10, 3);
+      if (typeof dn !== "number")
+        return dn.$add();
+      dnPP0MAex3 = (dn + p0) * aex3;
+      dnAex3 = dn * aex3;
+      if (typeof $T !== "number")
+        return H.iae($T);
+      fTR = 1.5709969788519638 * $T / 300;
+      fPI3 = Math.pow(12.566370614359172, 3);
+      nePNh = dnPP0MAex3 + dnAex3;
+      nePNh2 = Math.pow(nePNh, 2);
+      nePNh32 = Math.pow(nePNh, 1.5);
+      fT_2 = Math.pow(fTR, 2);
+      fT_3 = Math.pow(fTR, 3);
+      t1 = 0.5187 * dnPP0MAex3 + 0.4813 * dnAex3;
+      fnp_730 = Math.pow(t1, 0.23333333333333334);
+      a = fPI3 * nePNh2;
+      b = a + fT_3;
+      c1 = Math.sqrt(nePNh) * fT_2;
+      c2 = 40 * nePNh32 * fTR;
+      d = Math.sqrt(25.132741228718345 * nePNh) * Math.pow(fTR, 2.5);
+      t2 = Math.pow(48 * dnPP0MAex3 / 37.69911184307752, 0.3333333333333333);
+      t3 = Math.log(1 + 0.893 * fnp_730);
+      t4 = Math.pow(48 * dnAex3 / 12.566370614359172, 0.3333333333333333);
+      t5 = Math.log(1 + 1.153 * fnp_730);
+      nePNh2 = Math.pow(nePNh, 2);
+      nePNh12 = Math.sqrt(nePNh);
+      fT3 = Math.pow(fTR, 3);
+      a0 = Math.sqrt(fTR * nePNh / 6.283185307179586);
+      b0 = Math.log(1 + nePNh12 / fTR);
+      c = nePNh2 / fT3;
+      fnp_34 = Math.pow(t1, 0.75);
+      ch = p0 * aex3 * (1 + c);
+      d0 = c * fnp_34;
+      return 0.01655 * ((a * (t2 + 1.3346 * t3) + 1.0863627396113504 * dnPP0MAex3 * fT_2 + d) / (b + 8 * c1 + c2) + (a * (t4 + 1.2365 * t5) + 3.0240970883455347 * dnPP0MAex3 * fT_2 + d) / (b + c1 + c2) + (ch / (a0 * (1 + 3.91 * b0) + 2.8585 * d0 * (1 + 0.012 * fnp_34)) + ch / (a0 * (1 + 4.2 * b0) + 2.9307 * d0 * (1 + 0.19 * Math.pow(t1, 0.25)))));
+    },
     PVLib_dn1: function(p0, $T, Rs, $V, x11) {
       var i,
         f = new K.PVLib_dn1_closure(p0, $T, Rs, $V, x11),
@@ -3803,7 +3973,7 @@
       return r;
     },
     PVLib_Jr1: function(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, x11) {
-      var t1, t2, t3, t4, a, t5, c, t6, t7,
+      var t1, t2, t3, t4,
         dn1R = K.PVLib_dn1(p0, $T, Rs, $V, x11);
       if (typeof p0 !== "number")
         return p0.$div();
@@ -3814,31 +3984,101 @@
         return S0.$mul();
       if (typeof dn1R !== "number")
         return dn1R.$div();
-      t2 = dn1R / p0;
-      t3 = 1 + t2;
-      t4 = Math.pow(t3, r);
-      a = p0 + dn1R;
-      t5 = Math.pow(K.PVLib_ni($T), 2);
-      if (typeof b1 !== "number")
-        return b1.$mul();
-      c = a / (b1 * (dn1R + t5 / p0));
-      if (typeof tR !== "number")
-        return H.iae(tR);
-      t5 = Math.pow(1e15 / p0, 0.5);
-      if (typeof $T !== "number")
-        return $T.$div();
-      t6 = Math.pow($T / 300, 0.5);
-      t7 = Math.pow(c, 0.5);
-      t2 = Math.pow(0.5 * Math.log(c) - (1 - Math.pow(c, -0.5)) * t3 + t2 * (Math.pow(c, 0.5) - 1), 0.5);
+      t2 = Math.pow(1 + dn1R / p0, r);
+      t3 = K.PVLib_Vsc(tR, p0, $T, b1, k, dn1R);
       if (typeof d !== "number")
         return d.$div();
-      return 16e-20 * (S0 * t1 * t4 + 0.00000911 / tR * t5 * t6 * t7 * k / t2 + d / t00 * (1 + a / ps) + d * (a * 25e-32 * (1 + 13 * (1 - K.PVLib_tanh(Math.pow(p0 / 33e16, 0.66)))) * p0 + 3e-29 * Math.pow(dn1R, 0.92) + 288e-17));
+      t4 = p0 + dn1R;
+      return 16e-20 * (S0 * t1 * t2 + t3 + d / t00 * (1 + t4 / ps) + d * (t4 * 25e-32 * (1 + 13 * (1 - K.PVLib_tanh(Math.pow(p0 / 33e16, 0.66)))) * p0 + 3e-29 * Math.pow(dn1R, 0.92) + 288e-17));
     },
     PVLib_J02: function(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh, initialApproximation) {
       return new U.Equation(new K.PVLib_J02_closure(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh)).findSolution$2(initialApproximation, 1e-7);
     },
+    PVLib_fni: function($T, dE) {
+      var t1;
+      H.checkNum($T);
+      t1 = Math.pow($T, 1.6);
+      if (typeof $T !== "number")
+        return H.iae($T);
+      return 29135e11 * t1 * Math.exp(-(1.206 - 0.000273 * $T - dE) / (0.0001723466 * $T));
+    },
+    PVLib_alnr: function(data, e) {
+      var t1 = new X.Interpolation(data.x, data.y).linear$1(e);
+      return t1;
+    },
+    PVLib_fB: function(alData, nrData, $T, p0, dn, accuracy) {
+      return new N.Integral(new K.PVLib_fB_closure(alData, K.PVLib_dEgN(p0, dn, $T), nrData, $T)).findByTrapeze$3(0.856, 1.5, accuracy);
+    },
+    PVLib_fPPR: function(alData, nrData, $T, d, b1, p0, dn, accuracy) {
+      var f1, ch, z,
+        degn = K.PVLib_dEgN(p0, dn, $T),
+        fniP = K.PVLib_fni($T, degn);
+      if (typeof $T !== "number")
+        return H.iae($T);
+      f1 = new K.PVLib_fPPR_closure(alData, degn, nrData, fniP, 0.0000861733 * $T);
+      ch = new N.Integral(f1).findByTrapeze$3(0.856, 1.5, accuracy);
+      z = new N.Integral(new K.PVLib_fPPR_closure0(alData, degn, p0, dn, nrData, d, b1, f1)).findByTrapeze$3(0.856, 1.5, accuracy);
+      if (typeof z !== "number")
+        return z.$div();
+      if (typeof ch !== "number")
+        return H.iae(ch);
+      return z / ch;
+    },
+    PVLib_F41: function(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh, $J, x11) {
+      var t1 = K.PVLib_Jr1(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, x11),
+        t2 = K.PVLib_dn1(p0, $T, Rs, $V, x11);
+      if (typeof t2 !== "number")
+        return H.iae(t2);
+      if (typeof $J !== "number")
+        return $J.$sub();
+      if (typeof Rs !== "number")
+        return H.iae(Rs);
+      if (typeof $V !== "number")
+        return $V.$sub();
+      if (typeof Rsh !== "number")
+        return H.iae(Rsh);
+      return x11 - ($J - t1 * t2) - ($V - x11 * Rs) / Rsh;
+    },
     PVLib_J41: function(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh, Jsc, initialApproximation) {
       return new U.Equation(new K.PVLib_J41_closure(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh, Jsc)).findSolution$2(initialApproximation, 1e-7);
+    },
+    PVLib_Vm: function(power) {
+      var voltage_step, result, max_power, power_on_previous_step, i, v, p;
+      for (voltage_step = 0.1, result = 0.4, max_power = 0, power_on_previous_step = 0; true; power_on_previous_step = max_power) {
+        for (i = -2; i <= 2; ++i) {
+          v = 0.4 + i * voltage_step;
+          p = power.call$1(v);
+          if (typeof p !== "number")
+            return p.$gt();
+          if (p > max_power) {
+            max_power = p;
+            result = v;
+          }
+        }
+        if (power_on_previous_step >= max_power)
+          return result;
+        voltage_step /= 2;
+      }
+    },
+    PVLib_Vm2: function(p0, p00, t00, S0, $T, d, Rs, ps, r, tR, b1, k, m, Rsh, Jsc, currentInitialApproximation) {
+      return K.PVLib_Vm(new K.PVLib_Vm2_closure(p0, p00, t00, S0, $T, d, Rs, ps, r, tR, b1, k, m, Rsh, Jsc, currentInitialApproximation));
+    },
+    PVLib_J3f: function(d, $R, am15, abs, refraction) {
+      return new N.Integral(new K.PVLib_J3f_closure(am15, d, $R, abs, refraction)).findByTrapeze$3(305, 1150, 0.00001);
+    },
+    PVLib_J21: function(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh, $R, initialApproximation, am15, abs, reflection) {
+      return new U.Equation(new K.PVLib_J21_closure(p0, p00, t00, S0, $T, d, Rs, $V, ps, r, tR, b1, k, m, Rsh, $R, am15, abs, reflection)).findSolution$2(initialApproximation, 1e-7);
+    },
+    PVLib_K20: function(p0, p00, t00, S0, $T, d, Rs, ps, r, tR, b1, k, m, Rsh, $R, currentInitialApproximation, am15, abs, reflection) {
+      var t1,
+        current = new K.PVLib_K20_closure(p0, p00, t00, S0, $T, d, Rs, ps, r, tR, b1, k, m, Rsh, $R, currentInitialApproximation, am15, abs, reflection),
+        vm = K.PVLib_Vm(new K.PVLib_K20_closure0(current));
+      if (typeof vm !== "number")
+        return vm.$div();
+      t1 = current.call$1(vm);
+      if (typeof t1 !== "number")
+        return H.iae(t1);
+      return vm / 0.1 * t1;
     },
     PVLib_tanh: function(angle) {
       var e1, e2;
@@ -3882,6 +4122,32 @@
       _.m = t13;
       _.Rsh = t14;
     },
+    PVLib_fB_closure: function PVLib_fB_closure(t0, t1, t2, t3) {
+      var _ = this;
+      _.alData = t0;
+      _.degn = t1;
+      _.nrData = t2;
+      _.T = t3;
+    },
+    PVLib_fPPR_closure: function PVLib_fPPR_closure(t0, t1, t2, t3, t4) {
+      var _ = this;
+      _.alData = t0;
+      _.degn = t1;
+      _.nrData = t2;
+      _.fniP = t3;
+      _.kBT = t4;
+    },
+    PVLib_fPPR_closure0: function PVLib_fPPR_closure0(t0, t1, t2, t3, t4, t5, t6, t7) {
+      var _ = this;
+      _.alData = t0;
+      _.degn = t1;
+      _.p0 = t2;
+      _.dn = t3;
+      _.nrData = t4;
+      _.d = t5;
+      _.b1 = t6;
+      _.f1 = t7;
+    },
     PVLib_J41_closure: function PVLib_J41_closure(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15) {
       var _ = this;
       _.p0 = t0;
@@ -3900,9 +4166,83 @@
       _.m = t13;
       _.Rsh = t14;
       _.Jsc = t15;
+    },
+    PVLib_Vm2_closure: function PVLib_Vm2_closure(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15) {
+      var _ = this;
+      _.p0 = t0;
+      _.p00 = t1;
+      _.t0 = t2;
+      _.S0 = t3;
+      _.T = t4;
+      _.d = t5;
+      _.Rs = t6;
+      _.ps = t7;
+      _.r = t8;
+      _.tR = t9;
+      _.b1 = t10;
+      _.k = t11;
+      _.m = t12;
+      _.Rsh = t13;
+      _.Jsc = t14;
+      _.currentInitialApproximation = t15;
+    },
+    PVLib_J3f_closure: function PVLib_J3f_closure(t0, t1, t2, t3, t4) {
+      var _ = this;
+      _.am15 = t0;
+      _.d = t1;
+      _.R = t2;
+      _.abs = t3;
+      _.refraction = t4;
+    },
+    PVLib_J21_closure: function PVLib_J21_closure(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18) {
+      var _ = this;
+      _.p0 = t0;
+      _.p00 = t1;
+      _.t0 = t2;
+      _.S0 = t3;
+      _.T = t4;
+      _.d = t5;
+      _.Rs = t6;
+      _.V = t7;
+      _.ps = t8;
+      _.r = t9;
+      _.tR = t10;
+      _.b1 = t11;
+      _.k = t12;
+      _.m = t13;
+      _.Rsh = t14;
+      _.R = t15;
+      _.am15 = t16;
+      _.abs = t17;
+      _.reflection = t18;
+    },
+    PVLib_K20_closure: function PVLib_K20_closure(t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18) {
+      var _ = this;
+      _.p0 = t0;
+      _.p00 = t1;
+      _.t0 = t2;
+      _.S0 = t3;
+      _.T = t4;
+      _.d = t5;
+      _.Rs = t6;
+      _.ps = t7;
+      _.r = t8;
+      _.tR = t9;
+      _.b1 = t10;
+      _.k = t11;
+      _.m = t12;
+      _.Rsh = t13;
+      _.R = t14;
+      _.currentInitialApproximation = t15;
+      _.am15 = t16;
+      _.abs = t17;
+      _.reflection = t18;
+    },
+    PVLib_K20_closure0: function PVLib_K20_closure0(t0) {
+      this.current = t0;
     }
   };
-  var holders = [C, H, J, P, W, S, D, U, X, K];
+  var holders = [C, H, J, P, W, S, D, U, N, X, K];
   hunkHelpers.setFunctionNamesIfNecessary(holders);
   var $ = {};
   H.JS_CONST.prototype = {};
@@ -4614,13 +4954,13 @@
     call$0: function() {
       this.callback.call$0();
     },
-    $signature: 0
+    $signature: 1
   };
   P._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback.prototype = {
     call$0: function() {
       this.callback.call$0();
     },
-    $signature: 0
+    $signature: 1
   };
   P._TimerImpl.prototype = {
     _TimerImpl$2: function(milliseconds, callback) {
@@ -4634,7 +4974,7 @@
     call$0: function() {
       this.callback.call$0();
     },
-    $signature: 2
+    $signature: 3
   };
   P._Completer.prototype = {};
   P._AsyncCompleter.prototype = {};
@@ -4803,13 +5143,13 @@
     call$0: function() {
       P._Future__propagateToListeners(this.$this, this.listener);
     },
-    $signature: 0
+    $signature: 1
   };
   P._Future__prependListeners_closure.prototype = {
     call$0: function() {
       P._Future__propagateToListeners(this.$this, this._box_0.listeners);
     },
-    $signature: 0
+    $signature: 1
   };
   P._Future__chainForeignFuture_closure.prototype = {
     call$1: function(value) {
@@ -4829,7 +5169,7 @@
     call$0: function() {
       this.target._completeError$2(this.e, this.s);
     },
-    $signature: 0
+    $signature: 1
   };
   P._Future__asyncCompleteWithValue_closure.prototype = {
     call$0: function() {
@@ -4840,19 +5180,19 @@
       t1._resultOrListeners = t2;
       P._Future__propagateToListeners(t1, listeners);
     },
-    $signature: 0
+    $signature: 1
   };
   P._Future__chainFuture_closure.prototype = {
     call$0: function() {
       P._Future__chainCoreFuture(this.value, this.$this);
     },
-    $signature: 0
+    $signature: 1
   };
   P._Future__asyncCompleteError_closure.prototype = {
     call$0: function() {
       this.$this._completeError$2(this.error, this.stackTrace);
     },
-    $signature: 0
+    $signature: 1
   };
   P._Future__propagateToListeners_handleWhenCompleteCallback.prototype = {
     call$0: function() {
@@ -4893,7 +5233,7 @@
         t1.listenerHasError = false;
       }
     },
-    $signature: 2
+    $signature: 3
   };
   P._Future__propagateToListeners_handleWhenCompleteCallback_closure.prototype = {
     call$1: function(_) {
@@ -4919,7 +5259,7 @@
         t1.listenerHasError = true;
       }
     },
-    $signature: 2
+    $signature: 3
   };
   P._Future__propagateToListeners_handleError.prototype = {
     call$0: function() {
@@ -4945,7 +5285,7 @@
         t4.listenerHasError = true;
       }
     },
-    $signature: 2
+    $signature: 3
   };
   P._AsyncCallbackEntry.prototype = {};
   P.Stream.prototype = {
@@ -4973,7 +5313,7 @@
     call$0: function() {
       this.future._complete$1(this._box_0.count);
     },
-    $signature: 0
+    $signature: 1
   };
   P.StreamSubscription.prototype = {};
   P.AsyncError.prototype = {
@@ -4992,7 +5332,7 @@
       error.stack = J.toString$0$(this.stackTrace);
       throw error;
     },
-    $signature: 0
+    $signature: 1
   };
   P._RootZone.prototype = {
     runGuarded$1: function(f) {
@@ -5072,7 +5412,7 @@
     call$0: function() {
       return this.$this.runGuarded$1(this.f);
     },
-    $signature: 2
+    $signature: 3
   };
   P._RootZone_bindUnaryCallbackGuarded_closure.prototype = {
     call$1: function(arg) {
@@ -5599,7 +5939,9 @@
   };
   S.main_closure.prototype = {
     call$1: function(e) {
-      var copy, parameters, response, _s2_ = "p0",
+      var copy, parameters, response, _s1_ = "d",
+        _s10_ = "reflection",
+        _s2_ = "p0", _s2_0 = "S0", _s1_0 = "T", _s2_1 = "Rs", _s2_2 = "tR", _s1_1 = "b", _s3_ = "Rsh",
         t1 = type$.legacy_MessageEvent._as(e).data,
         t2 = new P._AcceptStructuredCloneDart2Js([], []);
       t2.mustCopy = true;
@@ -5609,15 +5951,31 @@
       switch (t1.$index(copy, "function")) {
         case "eq":
           t1 = J.getInterceptor$asx(parameters);
-          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "eq", "value", S.eq(H._asDoubleS(t1.$index(parameters, "D")), H._asDoubleS(t1.$index(parameters, "L")), H._asDoubleS(t1.$index(parameters, "d")), H._asDoubleS(t1.$index(parameters, "S")), H._asDoubleS(t1.$index(parameters, "Rd")), H._asStringS(t1.$index(parameters, "abs")), H._asStringS(t1.$index(parameters, "reflection")), H._asDoubleS(t1.$index(parameters, "wawelengthMin")), H._asDoubleS(t1.$index(parameters, "wawelengthMax")))], type$.legacy_String, type$.legacy_Object);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "eq", "value", S.eq(H._asDoubleS(t1.$index(parameters, "D")), H._asDoubleS(t1.$index(parameters, "L")), H._asDoubleS(t1.$index(parameters, _s1_)), H._asDoubleS(t1.$index(parameters, "S")), H._asDoubleS(t1.$index(parameters, "Rd")), H._asStringS(t1.$index(parameters, "abs")), H._asStringS(t1.$index(parameters, _s10_)), H._asDoubleS(t1.$index(parameters, "wawelengthMin")), H._asDoubleS(t1.$index(parameters, "wawelengthMax")))], type$.legacy_String, type$.legacy_Object);
           break;
         case "J02":
           t1 = J.getInterceptor$asx(parameters);
-          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "J02", "value", S.j02(H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, "S0")), H._asDoubleS(t1.$index(parameters, "T")), H._asDoubleS(t1.$index(parameters, "d")), H._asDoubleS(t1.$index(parameters, "Rs")), H._asDoubleS(t1.$index(parameters, "tR")), H._asDoubleS(t1.$index(parameters, "b1")), H._asDoubleS(t1.$index(parameters, "Rsh")))], type$.legacy_String, type$.legacy_Object);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "J02", "value", S.j02(H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_0)), H._asDoubleS(t1.$index(parameters, _s1_0)), H._asDoubleS(t1.$index(parameters, _s1_)), H._asDoubleS(t1.$index(parameters, _s2_1)), H._asDoubleS(t1.$index(parameters, _s2_2)), H._asDoubleS(t1.$index(parameters, _s1_1)), H._asDoubleS(t1.$index(parameters, _s3_)))], type$.legacy_String, type$.legacy_Object);
           break;
         case "J41":
           t1 = J.getInterceptor$asx(parameters);
-          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "J41", "value", S.j41(H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, "S0")), H._asDoubleS(t1.$index(parameters, "T")), H._asDoubleS(t1.$index(parameters, "d")), H._asDoubleS(t1.$index(parameters, "Rs")), H._asDoubleS(t1.$index(parameters, "tR")), H._asDoubleS(t1.$index(parameters, "b1")), H._asDoubleS(t1.$index(parameters, "Rsh")), H._asDoubleS(t1.$index(parameters, "Jsc")))], type$.legacy_String, type$.legacy_Object);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "J41", "value", S.j41(H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_0)), H._asDoubleS(t1.$index(parameters, _s1_0)), H._asDoubleS(t1.$index(parameters, _s1_)), H._asDoubleS(t1.$index(parameters, _s2_1)), H._asDoubleS(t1.$index(parameters, _s2_2)), H._asDoubleS(t1.$index(parameters, _s1_1)), H._asDoubleS(t1.$index(parameters, _s3_)), H._asDoubleS(t1.$index(parameters, "Jsc")))], type$.legacy_String, type$.legacy_Object);
+          break;
+        case "teff":
+          t1 = J.getInterceptor$asx(parameters);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "teff", "value", S.teff(H._asStringS(t1.$index(parameters, "alData")), H._asStringS(t1.$index(parameters, "nrData")), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_0)), H._asDoubleS(t1.$index(parameters, _s1_0)), H._asDoubleS(t1.$index(parameters, _s1_)), H._asDoubleS(t1.$index(parameters, _s2_2)), H._asDoubleS(t1.$index(parameters, _s1_1)))], type$.legacy_String, type$.legacy_Object);
+          break;
+        case "Vsc":
+          t1 = J.getInterceptor$asx(parameters);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "Vsc", "value", S.vsc(H._asDoubleS(t1.$index(parameters, _s2_2)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s1_0)), H._asDoubleS(t1.$index(parameters, _s1_1)))], type$.legacy_String, type$.legacy_Object);
+          break;
+        case "K2":
+          t1 = J.getInterceptor$asx(parameters);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "K2", "value", S.k2(H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_0)), H._asDoubleS(t1.$index(parameters, _s1_0)), H._asDoubleS(t1.$index(parameters, _s1_)), H._asDoubleS(t1.$index(parameters, _s2_1)), H._asDoubleS(t1.$index(parameters, _s2_2)), H._asDoubleS(t1.$index(parameters, _s1_1)), H._asDoubleS(t1.$index(parameters, _s3_)), H._asDoubleS(t1.$index(parameters, "Jsc")))], type$.legacy_String, type$.legacy_Object);
+          break;
+        case "K20":
+          t1 = J.getInterceptor$asx(parameters);
+          response = P.LinkedHashMap_LinkedHashMap$_literal(["response", "K20", "value", S.k20(H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_)), H._asDoubleS(t1.$index(parameters, _s2_0)), H._asDoubleS(t1.$index(parameters, _s1_0)), H._asDoubleS(t1.$index(parameters, _s1_)), H._asDoubleS(t1.$index(parameters, _s2_1)), H._asDoubleS(t1.$index(parameters, _s2_2)), H._asDoubleS(t1.$index(parameters, _s1_1)), H._asDoubleS(t1.$index(parameters, _s3_)), H._asDoubleS(t1.$index(parameters, "R")), H._asStringS(t1.$index(parameters, "am15")), H._asStringS(t1.$index(parameters, "abs")), H._asStringS(t1.$index(parameters, _s10_)))], type$.legacy_String, type$.legacy_Object);
           break;
         default:
           response = null;
@@ -5631,7 +5989,7 @@
       var points = K.PVLib_strToPoints(this.abs);
       return new X.Interpolation(points.x, points.y).linear$1(x);
     },
-    $signature: 1
+    $signature: 0
   };
   S.eq_closure.prototype = {
     call$1: function(index) {
@@ -5640,7 +5998,7 @@
         return t1.$add();
       return t1 + this.wawelengthStep * index;
     },
-    $signature: 3
+    $signature: 2
   };
   S.eq_closure0.prototype = {
     call$1: function(e) {
@@ -5676,40 +6034,160 @@
       t3 = t5 * g;
       return a / (1 - Math.pow(a, 2)) * (b * e * f - a * (1 - t3) - b * (1 + t3) - f * e + (e + a * (1 - t5)) * Math.exp(t2) * j) / j;
     },
-    $signature: 1
+    $signature: 0
   };
   S.eq_closure2.prototype = {
     call$1: function(x) {
       var points = K.PVLib_strToPoints(this.reflection);
       return new X.Interpolation(points.x, points.y).linear$1(x);
     },
-    $signature: 1
+    $signature: 0
   };
   S.j02_closure.prototype = {
     call$1: function(index) {
       return this.voltageMin + index * this.voltageStep;
     },
-    $signature: 3
+    $signature: 2
   };
   S.j02_closure0.prototype = {
     call$1: function(e) {
       var _this = this;
-      return K.PVLib_J02(_this.p0, _this.p00, 0.0024, _this.S0, _this.T, _this.d, _this.Rs, H._asDoubleS(e), 8e15, 1, _this.tR, _this.b1, 1.5, 1, _this.Rsh, 0.000001);
+      return K.PVLib_J02(_this.p0, _this.p00, 0.0024, _this.S0, _this.T, _this.d, _this.Rs, H._asDoubleS(e), 8e15, 1, _this.tR, _this.b, 1.5, 1, _this.Rsh, 0.000001);
     },
-    $signature: 1
+    $signature: 0
   };
   S.j41_closure.prototype = {
     call$1: function(index) {
       return this.voltageMin + index * this.voltageStep;
     },
-    $signature: 3
+    $signature: 2
   };
   S.j41_closure0.prototype = {
     call$1: function(e) {
       var _this = this;
-      return K.PVLib_J41(_this.p0, _this.p00, 0.0024, _this.S0, _this.T, _this.d, _this.Rs, H._asDoubleS(e), 8e15, 1, _this.tR, _this.b1, 1.5, 1, _this.Rsh, _this.Jsc, 0.000001);
+      return K.PVLib_J41(_this.p0, _this.p00, 0.0024, _this.S0, _this.T, _this.d, _this.Rs, H._asDoubleS(e), 8e15, 1, _this.tR, _this.b, 1.5, 1, _this.Rsh, _this.Jsc, 0.000001);
     },
-    $signature: 1
+    $signature: 0
+  };
+  S.teff_closure.prototype = {
+    call$1: function(index) {
+      return 1e13 * Math.pow(1.2, index);
+    },
+    $signature: 2
+  };
+  S.teff_closure0.prototype = {
+    call$1: function(e) {
+      var t1, t2, t3, t4, t5, t6, t7, p0PDn, t8, t9, t10, t11, b, c, z1, z2, t12, _this = this;
+      H._asDoubleS(e);
+      t1 = _this.al;
+      t2 = _this.nr;
+      t3 = _this.p0;
+      t4 = _this.p00;
+      t5 = _this.S0;
+      t6 = _this.T;
+      t7 = _this.d;
+      if (typeof t3 !== "number")
+        return t3.$add();
+      if (typeof e !== "number")
+        return H.iae(e);
+      p0PDn = t3 + e;
+      if (typeof t5 !== "number")
+        return t5.$div();
+      if (typeof t7 !== "number")
+        return H.iae(t7);
+      if (typeof t4 !== "number")
+        return H.iae(t4);
+      t4 = Math.pow(t3 / t4, 1);
+      t8 = Math.pow(1 + e / t3, 1);
+      t9 = K.PVLib_Vsc(_this.tR, t3, t6, _this.b, 1.5, e);
+      t10 = K.PVLib_tanh(Math.pow(t3 / 33e16, 0.66));
+      t11 = Math.pow(e, 0.92);
+      if (typeof t6 !== "number")
+        return t6.$div();
+      b = t3 + 0 + 2 * e;
+      c = 0.2 - 0.2 / (1 + Math.pow(t6 / 320, 2.5));
+      z1 = Math.pow(b / (15e17 + -149999999999e7 / (1 + Math.pow(t6 / 550, 3))), 0.54);
+      z2 = Math.pow(b / (4e18 + -3999999999e9 / (1 + Math.pow(t6 / 365, 3.54))), 1.25);
+      t12 = K.PVLib_fB(t1, t2, t6, t3, e, 1e-7);
+      if (typeof t12 !== "number")
+        return H.iae(t12);
+      return Math.pow(t5 / t7 * t4 * t8 + t9 / t7 + 416.6666666666667 * (1 + p0PDn / 8e15) + p0PDn * (25e-32 * (1 + 13 * (1 - t10)) * t3 + 3e-29 * t11 + (c + (1 - c) / (1 + z1 + z2)) * t12 * (1 - K.PVLib_fPPR(t1, t2, t6, t7, 6, t3, e, 1e-7))), -1);
+    },
+    $signature: 0
+  };
+  S.teff_closure1.prototype = {
+    call$1: function(e) {
+      var t1, t2, t3, p0_p_dn, t4, _this = this;
+      H._asDoubleS(e);
+      t1 = _this.p0;
+      t2 = _this.S0;
+      t3 = _this.d;
+      if (typeof t1 !== "number")
+        return t1.$add();
+      if (typeof e !== "number")
+        return H.iae(e);
+      p0_p_dn = t1 + e;
+      t4 = K.PVLib_Vsc(_this.tR, t1, _this.T, _this.b, 1.5, e);
+      if (typeof t3 !== "number")
+        return H.iae(t3);
+      if (typeof t2 !== "number")
+        return t2.$div();
+      return Math.pow(416.6666666666667 * (1 + p0_p_dn / 8e15) + t4 / t3 + t2 / t3 * e / t1 + p0_p_dn * (25e-32 * (1 + 13 * (1 - K.PVLib_tanh(Math.pow(t1 / 33e16, 0.66)))) * t1 + 3e-29 * Math.pow(e, 0.92) + 484e-17), -1);
+    },
+    $signature: 0
+  };
+  S.vsc_closure.prototype = {
+    call$1: function(index) {
+      return 1e13 * Math.pow(1.5, index);
+    },
+    $signature: 2
+  };
+  S.vsc_closure0.prototype = {
+    call$1: function(e) {
+      var _this = this;
+      return K.PVLib_Vsc(_this.tR, _this.p0, _this.T, _this.b, 1.5, H._asDoubleS(e));
+    },
+    $signature: 0
+  };
+  S.k2_closure.prototype = {
+    call$1: function(index) {
+      return 1e15 * Math.pow(1.35, index);
+    },
+    $signature: 2
+  };
+  S.k2_closure0.prototype = {
+    call$1: function(e) {
+      var t1, t2, t3, t4, t5, t6, t7, t8, t9, Vm, Jm, _this = this, _8000000000000000 = 8e15;
+      H._asDoubleS(e);
+      t1 = _this.p00;
+      t2 = _this.S0;
+      t3 = _this.T;
+      t4 = _this.d;
+      t5 = _this.Rs;
+      t6 = _this.tR;
+      t7 = _this.b;
+      t8 = _this.Rsh;
+      t9 = _this.Jsc;
+      Vm = K.PVLib_Vm2(e, t1, 0.0024, t2, t3, t4, t5, _8000000000000000, 1, t6, t7, 1.5, 1, t8, t9, 0.000001);
+      Jm = K.PVLib_J41(e, t1, 0.0024, t2, t3, t4, t5, Vm, _8000000000000000, 1, t6, t7, 1.5, 1, t8, t9, 0.000001);
+      if (typeof Vm !== "number")
+        return Vm.$mul();
+      return Vm * Jm / 0.1;
+    },
+    $signature: 0
+  };
+  S.k20_closure.prototype = {
+    call$1: function(index) {
+      return 0.02 * Math.pow(1.2, index);
+    },
+    $signature: 2
+  };
+  S.k20_closure0.prototype = {
+    call$1: function(e) {
+      var _this = this;
+      return K.PVLib_K20(_this.p0, _this.p00, 0.0024, _this.S0, _this.T, H._asDoubleS(e), _this.Rs, 8e15, 1, _this.tR, _this.b, 1.5, 1, _this.Rsh, _this.R, 0.000001, _this.am, _this.absorbtion, _this.r);
+    },
+    $signature: 0
   };
   S.DoesNotConvergeToTheSolutionException.prototype = {};
   D.Differential.prototype = {
@@ -5745,7 +6223,7 @@
         return H.iae(t3);
       return 1 / (12 * t1) * (t4 - 8 * t5 + 8 * t6 - t3);
     },
-    $signature: 1
+    $signature: 0
   };
   U.Equation.prototype = {
     findSolution$2: function(initialApproximation, accuracy) {
@@ -5761,7 +6239,7 @@
       x1 = initialApproximation - t2 / t3;
       for (x0 = initialApproximation, n = 0; Math.abs(x1 - x0) > accuracy; x0 = x1, x1 = x10) {
         if (n > 1000000)
-          throw H.wrapException(new S.DoesNotConvergeToTheSolutionException());
+          throw H.wrapException(S.DoesNotConvergeToTheSolutionException$());
         ++n;
         t2 = t1.call$1(x1);
         t3 = difResult.call$1(x1);
@@ -5782,7 +6260,48 @@
       else
         return r;
     },
-    $signature: 1
+    $signature: 0
+  };
+  N.Integral.prototype = {
+    findByTrapeze$3: function(a, b, accuracy) {
+      var segments, i2,
+        f = new N.Integral_findByTrapeze_closure(this, b, a),
+        i1 = f.call$1(100);
+      for (segments = 100; true; i1 = i2) {
+        segments *= 2;
+        i2 = f.call$1(segments);
+        if (typeof i1 !== "number")
+          return i1.$sub();
+        if (typeof i2 !== "number")
+          return H.iae(i2);
+        if (Math.abs(i1 - i2) <= accuracy)
+          return i2;
+        else if (segments > 1000000)
+          throw H.wrapException(S.DoesNotConvergeToTheSolutionException$());
+      }
+    }
+  };
+  N.Integral_findByTrapeze_closure.prototype = {
+    call$1: function(n) {
+      var t3, sum, i, t4,
+        t1 = this.b,
+        t2 = this.a,
+        h = (t1 - t2) / n;
+      for (t3 = this.$this.func, sum = 0, i = 1; i < n; ++i) {
+        t4 = t3.call$1(t2 + i * h);
+        if (typeof t4 !== "number")
+          return H.iae(t4);
+        sum += t4;
+      }
+      t2 = t3.call$1(t2);
+      t1 = t3.call$1(t1);
+      if (typeof t2 !== "number")
+        return t2.$add();
+      if (typeof t1 !== "number")
+        return H.iae(t1);
+      return h / 2 * (t2 + t1 + 2 * sum);
+    },
+    $signature: 2
   };
   X.Interpolation.prototype = {
     linear$1: function(x) {
@@ -5860,7 +6379,7 @@
   };
   K.PVLib_dn1_closure.prototype = {
     call$1: function(dn) {
-      var a, t5, t6, aex3, dnPP0MAex3, dnAex3, fTR, fPI3, nePNh, nePNh2, nePNh32, fT_2, fT_3, t7, fnp_730, a0, b, c1, c2, d, t8, t9, t10, t11, nePNh12, fT3, a1, b0, c, fnp_34, ch, d0, _this = this,
+      var a, t5, t6, _this = this,
         t1 = _this.p0,
         t2 = _this.T,
         t3 = _this.Rs,
@@ -5870,48 +6389,17 @@
       a = t1 / 2;
       t5 = Math.pow(a, 2);
       t6 = Math.pow(K.PVLib_ni(t2), 2);
-      aex3 = Math.pow(3719e-10, 3);
-      if (typeof dn !== "number")
-        return dn.$add();
-      dnPP0MAex3 = (dn + t1) * aex3;
-      dnAex3 = dn * aex3;
+      t1 = K.PVLib_dEgN(t1, dn, t2);
       if (typeof t2 !== "number")
         return H.iae(t2);
-      fTR = 1.5709969788519638 * t2 / 300;
-      fPI3 = Math.pow(12.566370614359172, 3);
-      nePNh = dnPP0MAex3 + dnAex3;
-      nePNh2 = Math.pow(nePNh, 2);
-      nePNh32 = Math.pow(nePNh, 1.5);
-      fT_2 = Math.pow(fTR, 2);
-      fT_3 = Math.pow(fTR, 3);
-      t7 = 0.5187 * dnPP0MAex3 + 0.4813 * dnAex3;
-      fnp_730 = Math.pow(t7, 0.23333333333333334);
-      a0 = fPI3 * nePNh2;
-      b = a0 + fT_3;
-      c1 = Math.sqrt(nePNh) * fT_2;
-      c2 = 40 * nePNh32 * fTR;
-      d = Math.sqrt(25.132741228718345 * nePNh) * Math.pow(fTR, 2.5);
-      t8 = Math.pow(48 * dnPP0MAex3 / 37.69911184307752, 0.3333333333333333);
-      t9 = Math.log(1 + 0.893 * fnp_730);
-      t10 = Math.pow(48 * dnAex3 / 12.566370614359172, 0.3333333333333333);
-      t11 = Math.log(1 + 1.153 * fnp_730);
-      nePNh2 = Math.pow(nePNh, 2);
-      nePNh12 = Math.sqrt(nePNh);
-      fT3 = Math.pow(fTR, 3);
-      a1 = Math.sqrt(fTR * nePNh / 6.283185307179586);
-      b0 = Math.log(1 + nePNh12 / fTR);
-      c = nePNh2 / fT3;
-      fnp_34 = Math.pow(t7, 0.75);
-      ch = t1 * aex3 * (1 + c);
-      d0 = c * fnp_34;
-      t7 = Math.pow(Math.exp(0.01655 * ((a0 * (t8 + 1.3346 * t9) + 1.0863627396113504 * dnPP0MAex3 * fT_2 + d) / (b + 8 * c1 + c2) + (a0 * (t10 + 1.2365 * t11) + 3.0240970883455347 * dnPP0MAex3 * fT_2 + d) / (b + c1 + c2) + (ch / (a1 * (1 + 3.91 * b0) + 2.8585 * d0 * (1 + 0.012 * fnp_34)) + ch / (a1 * (1 + 4.2 * b0) + 2.9307 * d0 * (1 + 0.19 * Math.pow(t7, 0.25))))) / 0.0518 * 300 / t2), 2);
+      t1 = Math.pow(Math.exp(t1 / 0.0518 * 300 / t2), 2);
       if (typeof t3 !== "number")
         return H.iae(t3);
       if (typeof t4 !== "number")
         return t4.$sub();
-      return -a + Math.sqrt(t5 + t6 * t7 * (Math.exp((t4 - _this.x11 * t3) / 0.0259 * 300 / t2) - 1));
+      return -a + Math.sqrt(t5 + t6 * t1 * (Math.exp((t4 - _this.x11 * t3) / 0.0259 * 300 / t2) - 1));
     },
-    $signature: 1
+    $signature: 0
   };
   K.PVLib_J02_closure.prototype = {
     call$1: function(x) {
@@ -5933,32 +6421,130 @@
         return H.iae(t5);
       return x - t6 * t2 - (t4 - x * t3) / t5;
     },
-    $signature: 1
+    $signature: 0
+  };
+  K.PVLib_fB_closure.prototype = {
+    call$1: function(x) {
+      var t1, t2, t3, t4, _this = this;
+      H._asDoubleS(x);
+      t1 = _this.degn;
+      if (typeof x !== "number")
+        return x.$add();
+      t2 = K.PVLib_alnr(_this.alData, x + t1);
+      t3 = K.PVLib_alnr(_this.nrData, x);
+      if (typeof t3 !== "number")
+        return t3.$mul();
+      t4 = _this.T;
+      t1 = Math.pow(t3 * x / (94181806161.96841 * Math.pow(6582120051869726e-31, 1.5) * K.PVLib_fni(t4, t1)), 2);
+      if (typeof t2 !== "number")
+        return t2.$mul();
+      if (typeof t4 !== "number")
+        return H.iae(t4);
+      return t2 * t1 * Math.exp(-x / (0.0000861733 * t4));
+    },
+    $signature: 0
+  };
+  K.PVLib_fPPR_closure.prototype = {
+    call$1: function(x) {
+      var t1, t2, _this = this;
+      H._asDoubleS(x);
+      if (typeof x !== "number")
+        return x.$add();
+      t1 = K.PVLib_alnr(_this.alData, x + _this.degn);
+      t2 = K.PVLib_alnr(_this.nrData, x);
+      if (typeof t2 !== "number")
+        return t2.$mul();
+      t2 = Math.pow(t2 * x / (94181806161.96841 * Math.pow(6582120051869726e-31, 1.5) * _this.fniP), 2);
+      if (typeof t1 !== "number")
+        return t1.$mul();
+      return t1 * t2 * Math.exp(-x / _this.kBT);
+    },
+    $signature: 0
+  };
+  K.PVLib_fPPR_closure0.prototype = {
+    call$1: function(x) {
+      var t1, t2, t3, t4, t5, t6, _this = this;
+      H._asDoubleS(x);
+      t1 = _this.alData;
+      if (typeof x !== "number")
+        return x.$add();
+      t2 = x + _this.degn;
+      t3 = K.PVLib_alnr(t1, t2);
+      t2 = K.PVLib_alnr(t1, t2);
+      t1 = Math.pow(0.000019732537703500252 / (x * 0.0001), 3);
+      if (typeof t2 !== "number")
+        return t2.$add();
+      t4 = K.PVLib_alnr(_this.nrData, x);
+      H.checkNum(t4);
+      t4 = Math.pow(t4, 2);
+      t5 = _this.d;
+      if (typeof t5 !== "number")
+        return H.iae(t5);
+      if (typeof t3 !== "number")
+        return t3.$div();
+      t6 = _this.f1.call$1(x);
+      if (typeof t6 !== "number")
+        return H.iae(t6);
+      return t3 / (t2 + 26e-19 * t1 * (_this.p0 + _this.dn) + 1 / (4 * t4 * t5 / _this.b1)) * t6;
+    },
+    $signature: 0
   };
   K.PVLib_J41_closure.prototype = {
     call$1: function(x) {
-      var _this = this,
-        t1 = _this.p0,
-        t2 = _this.T,
-        t3 = _this.Rs,
-        t4 = _this.V,
-        t5 = _this.Rsh,
-        t6 = _this.Jsc,
-        t7 = K.PVLib_Jr1(t1, _this.p00, _this.t0, _this.S0, t2, _this.d, t3, t4, _this.ps, _this.r, _this.tR, _this.b1, _this.k, _this.m, x);
-      t2 = K.PVLib_dn1(t1, t2, t3, t4, x);
-      if (typeof t2 !== "number")
-        return H.iae(t2);
-      if (typeof t6 !== "number")
-        return t6.$sub();
+      var _this = this;
+      return K.PVLib_F41(_this.p0, _this.p00, _this.t0, _this.S0, _this.T, _this.d, _this.Rs, _this.V, _this.ps, _this.r, _this.tR, _this.b1, _this.k, _this.m, _this.Rsh, _this.Jsc, x);
+    },
+    $signature: 0
+  };
+  K.PVLib_Vm2_closure.prototype = {
+    call$1: function(voltage) {
+      var _this = this;
+      return K.PVLib_J41(_this.p0, _this.p00, _this.t0, _this.S0, _this.T, _this.d, _this.Rs, voltage, _this.ps, _this.r, _this.tR, _this.b1, _this.k, _this.m, _this.Rsh, _this.Jsc, _this.currentInitialApproximation) * voltage;
+    },
+    $signature: 0
+  };
+  K.PVLib_J3f_closure.prototype = {
+    call$1: function(x) {
+      var t1, t2, t3, t4, t5, a, _this = this;
+      H._asDoubleS(x);
+      t1 = _this.am15;
+      t1 = new X.Interpolation(t1.x, t1.y).linear$1(x);
+      t2 = _this.d;
+      t3 = _this.R;
+      t4 = _this.abs;
+      t5 = _this.refraction;
+      a = new X.Interpolation(t4.x, t4.y).linear$1(x);
       if (typeof t3 !== "number")
         return H.iae(t3);
-      if (typeof t4 !== "number")
-        return t4.$sub();
-      if (typeof t5 !== "number")
-        return H.iae(t5);
-      return x - (t6 - t7 * t2) - (t4 - x * t3) / t5;
+      if (typeof t2 !== "number")
+        return H.iae(t2);
+      return t1 * 25e-16 * ((1 - Math.exp(-(1 + t3) * a * t2)) * new X.Interpolation(t5.x, t5.y).linear$1(x)) * 0.0000646;
     },
-    $signature: 1
+    $signature: 0
+  };
+  K.PVLib_J21_closure.prototype = {
+    call$1: function(x) {
+      var _this = this,
+        t1 = _this.d;
+      return K.PVLib_F41(_this.p0, _this.p00, _this.t0, _this.S0, _this.T, t1, _this.Rs, _this.V, _this.ps, _this.r, _this.tR, _this.b1, _this.k, _this.m, _this.Rsh, K.PVLib_J3f(t1, _this.R, _this.am15, _this.abs, _this.reflection), x);
+    },
+    $signature: 0
+  };
+  K.PVLib_K20_closure.prototype = {
+    call$1: function(voltage) {
+      var _this = this;
+      return K.PVLib_J21(_this.p0, _this.p00, _this.t0, _this.S0, _this.T, _this.d, _this.Rs, voltage, _this.ps, _this.r, _this.tR, _this.b1, _this.k, _this.m, _this.Rsh, _this.R, _this.currentInitialApproximation, _this.am15, _this.abs, _this.reflection);
+    },
+    $signature: 0
+  };
+  K.PVLib_K20_closure0.prototype = {
+    call$1: function(voltage) {
+      var t1 = this.current.call$1(voltage);
+      if (typeof t1 !== "number")
+        return t1.$mul();
+      return t1 * voltage;
+    },
+    $signature: 0
   };
   (function aliases() {
     var _ = J.JavaScriptObject.prototype;
@@ -5970,14 +6556,14 @@
     _static_1(P, "async__AsyncRun__scheduleImmediateJsOverride$closure", "_AsyncRun__scheduleImmediateJsOverride", 4);
     _static_1(P, "async__AsyncRun__scheduleImmediateWithSetImmediate$closure", "_AsyncRun__scheduleImmediateWithSetImmediate", 4);
     _static_1(P, "async__AsyncRun__scheduleImmediateWithTimer$closure", "_AsyncRun__scheduleImmediateWithTimer", 4);
-    _static_0(P, "async___startMicrotaskLoop$closure", "_startMicrotaskLoop", 2);
+    _static_0(P, "async___startMicrotaskLoop$closure", "_startMicrotaskLoop", 3);
   })();
   (function inheritance() {
     var _mixin = hunkHelpers.mixin,
       _inherit = hunkHelpers.inherit,
       _inheritMany = hunkHelpers.inheritMany;
     _inherit(P.Object, null);
-    _inheritMany(P.Object, [H.JS_CONST, J.Interceptor, J.ArrayIterator, P.Iterable, H.ListIterator, P.Iterator, H.FixedLengthListMixin, H.TypeErrorDecoder, P.Error, H.NullThrownFromJavaScriptException, H._StackTrace, H.Closure, P.MapMixin, H.LinkedHashMapCell, H.Rti, H._FunctionParameters, P._TimerImpl, P._Completer, P._FutureListener, P._Future, P._AsyncCallbackEntry, P.Stream, P.StreamSubscription, P.AsyncError, P._Zone, P.ListMixin, P.bool, P.DateTime, P.num, P.StackOverflowError, P._Exception, P.FormatException, P.IntegerDivisionByZeroException, P.List, P.Map, P.Null, P.StackTrace, P._StringStackTrace, P.String, P.StringBuffer, W.EventStreamProvider, P._StructuredClone, P._AcceptStructuredClone, S.DoesNotConvergeToTheSolutionException, D.Differential, U.Equation, X.Interpolation, S.Points]);
+    _inheritMany(P.Object, [H.JS_CONST, J.Interceptor, J.ArrayIterator, P.Iterable, H.ListIterator, P.Iterator, H.FixedLengthListMixin, H.TypeErrorDecoder, P.Error, H.NullThrownFromJavaScriptException, H._StackTrace, H.Closure, P.MapMixin, H.LinkedHashMapCell, H.Rti, H._FunctionParameters, P._TimerImpl, P._Completer, P._FutureListener, P._Future, P._AsyncCallbackEntry, P.Stream, P.StreamSubscription, P.AsyncError, P._Zone, P.ListMixin, P.bool, P.DateTime, P.num, P.StackOverflowError, P._Exception, P.FormatException, P.IntegerDivisionByZeroException, P.List, P.Map, P.Null, P.StackTrace, P._StringStackTrace, P.String, P.StringBuffer, W.EventStreamProvider, P._StructuredClone, P._AcceptStructuredClone, S.DoesNotConvergeToTheSolutionException, D.Differential, U.Equation, N.Integral, X.Interpolation, S.Points]);
     _inheritMany(J.Interceptor, [J.JSBool, J.JSNull, J.JavaScriptObject, J.JSArray, J.JSNumber, J.JSString, H.NativeByteBuffer, H.NativeTypedData, W.Blob, W.EventTarget, W.DomException, W.Event]);
     _inheritMany(J.JavaScriptObject, [J.PlainJavaScriptObject, J.UnknownJavaScriptObject, J.JavaScriptFunction]);
     _inherit(J.JSUnmodifiableArray, J.JSArray);
@@ -5987,7 +6573,7 @@
     _inherit(H.MappedListIterable, H.ListIterable);
     _inherit(H.WhereIterator, P.Iterator);
     _inheritMany(P.Error, [H.NullError, H.JsNoSuchMethodError, H.UnknownJsTypeError, H.RuntimeError, P.AssertionError, H._Error, P.NullThrownError, P.ArgumentError, P.UnsupportedError, P.UnimplementedError, P.StateError, P.ConcurrentModificationError, P.CyclicInitializationError]);
-    _inheritMany(H.Closure, [H.TearOffClosure, H.initHooks_closure, H.initHooks_closure0, H.initHooks_closure1, P._AsyncRun__initializeScheduleImmediate_internalCallback, P._AsyncRun__initializeScheduleImmediate_closure, P._AsyncRun__scheduleImmediateJsOverride_internalCallback, P._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, P._TimerImpl_internalCallback, P._Future__addListener_closure, P._Future__prependListeners_closure, P._Future__chainForeignFuture_closure, P._Future__chainForeignFuture_closure0, P._Future__chainForeignFuture_closure1, P._Future__asyncCompleteWithValue_closure, P._Future__chainFuture_closure, P._Future__asyncCompleteError_closure, P._Future__propagateToListeners_handleWhenCompleteCallback, P._Future__propagateToListeners_handleWhenCompleteCallback_closure, P._Future__propagateToListeners_handleValueCallback, P._Future__propagateToListeners_handleError, P.Stream_length_closure, P.Stream_length_closure0, P._rootHandleUncaughtError_closure, P._RootZone_bindCallback_closure, P._RootZone_bindCallbackGuarded_closure, P._RootZone_bindUnaryCallbackGuarded_closure, P.MapBase_mapToString_closure, W._EventStreamSubscription_closure, P._StructuredClone_walk_closure, P._StructuredClone_walk_closure0, P._AcceptStructuredClone_walk_closure, P.promiseToFuture_closure, P.promiseToFuture_closure0, S.main_closure, S.eq_closure1, S.eq_closure, S.eq_closure0, S.eq_closure2, S.j02_closure, S.j02_closure0, S.j41_closure, S.j41_closure0, D.Differential__f_closure, U.Equation_findSolution_closure, K.PVLib_strToPoints_closure, K.PVLib_strToPoints__closure, K.PVLib_dn1_closure, K.PVLib_J02_closure, K.PVLib_J41_closure]);
+    _inheritMany(H.Closure, [H.TearOffClosure, H.initHooks_closure, H.initHooks_closure0, H.initHooks_closure1, P._AsyncRun__initializeScheduleImmediate_internalCallback, P._AsyncRun__initializeScheduleImmediate_closure, P._AsyncRun__scheduleImmediateJsOverride_internalCallback, P._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, P._TimerImpl_internalCallback, P._Future__addListener_closure, P._Future__prependListeners_closure, P._Future__chainForeignFuture_closure, P._Future__chainForeignFuture_closure0, P._Future__chainForeignFuture_closure1, P._Future__asyncCompleteWithValue_closure, P._Future__chainFuture_closure, P._Future__asyncCompleteError_closure, P._Future__propagateToListeners_handleWhenCompleteCallback, P._Future__propagateToListeners_handleWhenCompleteCallback_closure, P._Future__propagateToListeners_handleValueCallback, P._Future__propagateToListeners_handleError, P.Stream_length_closure, P.Stream_length_closure0, P._rootHandleUncaughtError_closure, P._RootZone_bindCallback_closure, P._RootZone_bindCallbackGuarded_closure, P._RootZone_bindUnaryCallbackGuarded_closure, P.MapBase_mapToString_closure, W._EventStreamSubscription_closure, P._StructuredClone_walk_closure, P._StructuredClone_walk_closure0, P._AcceptStructuredClone_walk_closure, P.promiseToFuture_closure, P.promiseToFuture_closure0, S.main_closure, S.eq_closure1, S.eq_closure, S.eq_closure0, S.eq_closure2, S.j02_closure, S.j02_closure0, S.j41_closure, S.j41_closure0, S.teff_closure, S.teff_closure0, S.teff_closure1, S.vsc_closure, S.vsc_closure0, S.k2_closure, S.k2_closure0, S.k20_closure, S.k20_closure0, D.Differential__f_closure, U.Equation_findSolution_closure, N.Integral_findByTrapeze_closure, K.PVLib_strToPoints_closure, K.PVLib_strToPoints__closure, K.PVLib_dn1_closure, K.PVLib_J02_closure, K.PVLib_fB_closure, K.PVLib_fPPR_closure, K.PVLib_fPPR_closure0, K.PVLib_J41_closure, K.PVLib_Vm2_closure, K.PVLib_J3f_closure, K.PVLib_J21_closure, K.PVLib_K20_closure, K.PVLib_K20_closure0]);
     _inheritMany(H.TearOffClosure, [H.StaticClosure, H.BoundClosure]);
     _inherit(H._AssertionError, P.AssertionError);
     _inherit(P.MapBase, P.MapMixin);
@@ -6023,7 +6609,7 @@
     mangledNames: {},
     getTypeFromName: getGlobalFromName,
     metadata: [],
-    types: ["Null()", "double*(double*)", "~()", "double*(int*)", "~(~())", "Null(@)", "Null(@,@)", "~(@)", "@(@)", "@(@,String)", "@(String)", "Null(~())", "Null(Object,StackTrace)", "_Future<@>(@)", "Null(Object?,Object?)", "@(Event)", "@(@,@)", "Null(MessageEvent*)", "Null(String*)", "bool*(String*)"],
+    types: ["double*(double*)", "Null()", "double*(int*)", "~()", "~(~())", "Null(@)", "Null(@,@)", "~(@)", "@(@)", "@(@,String)", "@(String)", "Null(~())", "Null(Object,StackTrace)", "_Future<@>(@)", "Null(Object?,Object?)", "@(Event)", "@(@,@)", "Null(MessageEvent*)", "Null(String*)", "bool*(String*)"],
     interceptorsByTag: null,
     leafTags: null,
     arrayRti: typeof Symbol == "function" && typeof Symbol() == "symbol" ? Symbol("$ti") : "$ti"
