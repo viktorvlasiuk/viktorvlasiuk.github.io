@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMS Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .indicator {
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .charging {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .discharging {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .neutral {
+            background-color: #9e9e9e;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Battery Monitor</h1>
+        <div class="data-item">
+            <span>Battery Voltage:</span>
+            <span id="voltage">-- V</span>
+        </div>
+        <div class="data-item">
+            <span>Battery Current:</span>
+            <span id="current">-- A</span>
+        </div>
+        <div class="data-item">
+            <span>Battery Power:</span>
+            <span id="power">-- W</span>
+        </div>
+        <div class="data-item">
+            <span>State of Charge:</span>
+            <span id="soc">-- %</span>
+        </div>
+        <div class="data-item">
+            <span>Remaining Capacity:</span>
+            <span id="capacity">-- Ah</span>
+        </div>
+        <div class="data-item">
+            <span>Estimated Time:</span>
+            <span id="time">--</span>
+        </div>
+        <div class="indicator neutral" id="status-indicator">
+            Status: --
+        </div>
+    </div>
+
+    <script>
+        const apiBase = 'http://esp32-ble-jk-bms.local';
+
+        async function fetchData(endpoint) {
+            try {
+                const response = await fetch(`${apiBase}/${endpoint}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${endpoint}`);
+                }
+                const data = await response.json();
+                return data.value;
+            } catch (error) {
+                console.error(`Error fetching ${endpoint}:`, error);
+                return null;
+            }
+        }
+
+        async function updateData() {
+            const voltage = await fetchData('sensor/total_voltage');
+            const current = await fetchData('sensor/current');
+            const power = await fetchData('sensor/power');
+            const soc = await fetchData('sensor/state_of_charge');
+            const capacity = await fetchData('sensor/capacity_remaining');
+            const estimatedTime = await fetchData('text_sensor/estimated_time_formatted');
+
+            if (voltage !== null) document.getElementById('voltage').textContent = `${voltage.toFixed(2)} V`;
+            if (current !== null) document.getElementById('current').textContent = `${Math.abs(current).toFixed(2)} A`;
+            if (power !== null) document.getElementById('power').textContent = `${Math.abs(power).toFixed(2)} W`;
+            if (soc !== null) document.getElementById('soc').textContent = `${soc} %`;
+            if (capacity !== null) document.getElementById('capacity').textContent = `${capacity.toFixed(3)} Ah`;
+            if (estimatedTime !== null) document.getElementById('time').textContent = estimatedTime;
+
+            const statusIndicator = document.getElementById('status-indicator');
+            if (current > 0) {
+                statusIndicator.textContent = 'Charging';
+                statusIndicator.className = 'indicator charging';
+            } else {
+                statusIndicator.textContent = 'Discharging';
+                statusIndicator.className = 'indicator discharging';
+            }
+        }
+
+        setInterval(updateData, 3000); // Оновлення кожні 3 секунди
+        updateData(); 
+    </script>
+</body>
+
+</html>
